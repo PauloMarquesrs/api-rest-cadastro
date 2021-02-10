@@ -10,4 +10,6 @@ app.use(bodyParser.urlencoded({ extended: false}))
 //    res.send('ok')
 //})
 
+require('.controllers/authController')(app)
+
 app.listen(3000)
