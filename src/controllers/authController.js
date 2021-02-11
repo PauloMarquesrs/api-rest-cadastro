@@ -1,6 +1,6 @@
 const express = require('express')
 
-const User = require('../moduls/User')
+const User = require('../models/User')
 
 const router = express.Router()
 
@@ -11,8 +11,8 @@ router.post('/register', async (req, res) => {
         return res.send({ user })
     }
     catch (err) {
-        return res.status(400).send({ error: 'Registration failed'})
+        return res.status(400).send({ error: 'Registration failed' })
     }
 })
 
-module.exports = app => app.use('/auth, router')
+module.exports = app => app.use('/auth', router)
