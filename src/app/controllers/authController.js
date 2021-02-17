@@ -74,13 +74,13 @@ router.post('/forgot_password', async (req, res) => {
         await User.findByIdAndUpdate(user.id, {
             '$set': {
                 passwordResetToken: token,
-                passwordResetExpires: now
+                passwordResetExpires: now,
             }
         })
         
         mailer.sendMail({
             to: email,
-            from: 'paulomarquesexecultivo@gmail.com',
+            from: 'paulomarques@gmail.com',
             template: 'auth/forgot_password',
             context: { token },
         }, (err) => {
