@@ -11,7 +11,10 @@ const transport = nodemailer.createTransport({
 });
 
 transport.use('compile', hbs({
-    viewEngine: 'handlebars',
+    viewEngine: {
+        defaultLayout: undefined,
+        partialsDir: path.resolve('./src/resources/mail/')
+    },
     viewPath: path.resolve('./src/resources/mail/'),
     extName: '.html'
 }))
